@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FarmAI - AI-powered crop recommendation system">
+    <meta name="keywords" content="agriculture, AI, crop recommendation, farming, soil analysis">
+    <title>🌾 FarmAI - Smart Crop Recommendation</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+               <div class="logo">
+                    <img src="assets/images/logo.png" alt="FarmAI Logo" class="logo-image">
+                    <h1>FarmAI</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#analyze" class="nav-link">Analyze</a>
+                    <a href="#about" class="nav-link">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Smart Farming with AI</h2>
+                <p class="hero-subtitle">Upload soil image and get intelligent crop recommendations</p>
+                <button class="btn btn-primary" onclick="scrollToAnalyze()">
+                    Start Analysis →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analyze" class="analyze-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Soil Analysis & Crop Recommendation</h2>
+                <p>Upload your soil image and provide farm details for AI-powered insights</p>
+            </div>
+
+            <!-- Progress Steps -->
+            <div class="progress-steps">
+                <div class="step active" id="step-indicator-1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Upload Image</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" id="step-indicator-2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Enter Details</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" id="step-indicator-3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Get Results</div>
+                </div>
+            </div>
+
+            <!-- Step 1: Upload Image -->
+            <div class="analysis-step" id="step-1">
+                <div class="upload-section">
+                    <h3>📸 Upload Soil Image</h3>
+                    <div class="upload-box" id="upload-box">
+                        <input type="file" id="soil-image" accept="image/*" hidden>
+                        <div class="upload-content" id="upload-content">
+                            <div class="upload-icon">📤</div>
+                            <p class="upload-text">Click to upload or drag and drop</p>
+                            <p class="upload-hint">Supported: JPG, PNG, JPEG (Max 16MB)</p>
+                        </div>
+                        <div class="image-preview" id="image-preview" hidden>
+                            <img id="preview-img" alt="Soil Preview">
+                            <button class="btn-remove" id="remove-image">✕</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="next-to-step-2" disabled>
+                        Next: Enter Farm Details →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Farm Details -->
+            <div class="analysis-step" id="step-2" hidden>
+                <div class="form-section">
+                    <h3>🌾 Farm Details</h3>
+                    <form id="farm-details-form" class="farm-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="location">📍 Location (City/District) *</label>
+                                <input type="text" id="location" placeholder="e.g., Chennai, Tamil Nadu" required>
+                                <small class="form-hint">Type to search for your location</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="season">📅 Season *</label>
+                                <select id="season" required>
+                                    <option value="">Select Season</option>
+                                    <option value="kharif">Kharif (Monsoon - Jun-Oct)</option>
+                                    <option value="rabi">Rabi (Winter - Nov-Mar)</option>
+                                    <option value="summer">Summer (Apr-May)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="temperature">🌡️ Avg Temperature (°C) *</label>
+                                <input type="number" id="temperature" placeholder="e.g., 28" min="0" max="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="rainfall">💧 Annual Rainfall (mm) *</label>
+                                <input type="number" id="rainfall" placeholder="e.g., 800" min="0" max="5000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="humidity">💨 Humidity (%) *</label>
+                                <input type="number" id="humidity" placeholder="e.g., 65" min="0" max="100" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="previous-crop">🌾 Previous Crop (Optional)</label>
+                                <input type="text" id="previous-crop" placeholder="e.g., Wheat">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="back-to-step-1">
+                                ← Back
+                            </button>
+                            <button type="button" class="btn btn-primary" id="analyze-button">
+                                🤖 Analyze with AI
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Step 3: Loading -->
+            <div class="analysis-step" id="step-loading" hidden>
+                <div class="loading-section">
+                    <div class="loading-spinner"></div>
+                    <h3>🧠 AI is analyzing your soil...</h3>
+                    <p>Processing image and farm parameters</p>
+                    <div class="loading-steps">
+                        <p>✓ Analyzing soil color and texture</p>
+                        <p>✓ Comparing with agricultural database</p>
+                        <p>✓ Calculating crop suitability scores</p>
+                        <p>✓ Generating recommendations...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Results -->
+            <div class="analysis-step" id="step-3" hidden>
+                <div class="results-section">
+                    <!-- Results will be dynamically inserted here -->
+                    <div id="results-container"></div>
+                    
+                    <div class="results-actions">
+                        <button class="btn btn-secondary" id="analyze-another">
+                            🔄 Analyze Another Soil
+                        </button>
+                        <button class="btn btn-primary" id="download-report">
+                            📥 Download PDF Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About This System</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🔬</div>
+                    <h3>AI-Powered Analysis</h3>
+                    <p>Advanced computer vision algorithms analyze soil characteristics from images</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🌾</div>
+                    <h3>Smart Recommendations</h3>
+                    <p>Data-driven crop suggestions based on soil type, climate, and season</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📊</div>
+                    <h3>Comprehensive Reports</h3>
+                    <p>Detailed analysis with fertilizer plans, irrigation advisory, and yield predictions</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💡</div>
+                    <h3>Expert Tips</h3>
+                    <p>Actionable insights from agricultural best practices and research</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+/* ===================================
+   Responsive Design Styles
+   Mobile-First Approach
+   =================================== */
+
+/* Tablet Landscape (1024px and below) */
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .crops-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablet Portrait (768px and below) */
+@media screen and (max-width: 768px) {
+    /* Header */
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 3rem 0;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    /* Progress Steps */
+    .progress-steps {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .step-line {
+        width: 3px;
+        height: 60px;
+        top: 0;
+        left: 23px;
+        position: absolute;
+    }
+
+    .step {
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 1rem;
+        position: relative;
+    }
+
+    .step-number {
+        margin-bottom: 0;
+    }
+
+    /* Forms */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    /* Crops Grid */
+    .crops-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Info Grid */
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* About Grid */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Analysis Step */
+    .analysis-step {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Results Actions */
+    .results-actions {
+        flex-direction: column;
+    }
+}
+
+/* Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    /* Typography */
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+    }
+
+    /* Header */
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+
+    .logo-icon {
+        font-size: 1.5rem;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* Upload Box */
+    .upload-box {
+        padding: 2rem 1rem;
+    }
+
+    .upload-icon {
+        font-size: 3rem;
+    }
+
+    .upload-text {
+        font-size: 1.1rem;
+    }
+
+    .upload-hint {
+        font-size: 0.85rem;
+    }
+
+    /* Form Groups */
+    .form-group input,
+    .form-group select {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .form-group label {
+        font-size: 0.95rem;
+    }
+
+    /* Cards */
+    .result-card {
+        padding: 1.5rem;
+    }
+
+    .result-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .crop-card {
+        padding: 1.2rem;
+    }
+
+    .crop-name {
+        font-size: 1.3rem;
+    }
+
+    .crop-score {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Loading */
+    .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border-width: 6px;
+    }
+
+    .loading-section h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Analysis Step */
+    .analysis-step {
+        padding: 1.5rem 1rem;
+        border-radius: 15px;
+    }
+
+    /* Image Preview */
+    .image-preview img {
+        max-height: 300px;
+    }
+
+    /* About Cards */
+    .about-card {
+        padding: 1.5rem;
+    }
+
+    .about-icon {
+        font-size: 2.5rem;
+    }
+
+    .about-card h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.5rem 0;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Mobile (360px and below) */
+@media screen and (max-width: 360px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .analysis-step {
+        padding: 1rem;
+    }
+
+    .upload-box {
+        padding: 1.5rem 0.8rem;
+    }
+
+    .crop-card {
+        padding: 1rem;
+    }
+
+    .info-box {
+        padding: 1rem;
+    }
+
+    .result-card {
+        padding: 1rem;
+    }
+}
+
+/* Landscape Orientation */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .analyze-section {
+        padding: 2rem 0;
+    }
+
+    .analysis-step {
+        padding: 2rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .nav,
+    .hero,
+    .about-section,
+    .footer,
+    .btn,
+    .form-actions,
+    .results-actions {
+        display: none !important;
+    }
+
+    .results-section {
+        page-break-inside: avoid;
+    }
+
+    .result-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+
+    body {
+        background: white;
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode styles if needed */
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .btn-primary {
+        border: 2px solid #000;
+    }
+
+    .upload-box {
+        border-width: 4px;
+    }
+
+    .crop-card,
+    .result-card {
+        border-width: 3px;
+    }
+}
